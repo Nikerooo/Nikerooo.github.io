@@ -4,6 +4,7 @@ $colorHojas: #269482;
 $colorHojasClarito:lighten($colorHojas, 45%);
 $colorTronco: #C07D46;
 $colorTroncoClarito: lighten($colorTronco, 30%);
+$colorPlaceholder: #caced1;
 
 $verde: $colorHojas; 
 $marron: $colorTronco;
@@ -469,4 +470,179 @@ footer .pie-pagina {
       }
   }
 
+}
+
+
+
+.pagina-principal {
+    // Fondo general ligeramente grisáceo/azulado según el mockup
+    background-color: #f2f5f7; 
+
+    // ==========================================
+    // HERO Y BARRA DE ICONOS
+    // ==========================================
+    .seccion-hero {
+        .fotoEntrada {
+            width: 100%;
+            height: 40vh; 
+            min-height: 250px;
+            background-color: $colorPlaceholder;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            object-fit: cover;
+
+        }
+
+        .barra-iconos-hero {
+            background-color: $colorTroncoClarito;
+            padding: 1.2rem 0;
+            
+            .icono-barra {
+                font-size: 1.8rem;
+                color: $colorHojas;
+            }
+        }
+    }
+
+    // ==========================================
+    // SECCIONES DE INFORMACIÓN (Turnos, Cartilla, Trámites)
+    // ==========================================
+    .seccion-info {
+        padding: 4rem 0;
+        
+        .titulo-info {
+            font-size: 1.7rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitulo-info {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .texto-info {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .imagen-seccion-placeholder {
+            width: 100%;
+            max-width: 250px;
+            height: 180px;
+            background-color: $colorPlaceholder;
+            border-radius: 8px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &::after {
+                content: "\F424";
+                font-family: "bootstrap-icons";
+                font-size: 3rem;
+                color: darken($colorPlaceholder, 15%);
+            }
+        }
+
+        .btn-accion {
+            background-color: $colorHojas;
+            color: white;
+            padding: 0.6rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+
+            &:hover {
+                background-color: darken($colorHojas, 10%);
+                color: white;
+                transform: translateY(-2px);
+            }
+        }
+    }
+
+    // ==========================================
+    // SECCIÓN CARRUSEL
+    // ==========================================
+    .seccion-carrusel {
+        padding: 2rem 0 4rem;
+
+        .titulo-carrusel {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .imagen-carrusel-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: $colorPlaceholder;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &::after {
+                content: "\F424";
+                font-family: "bootstrap-icons";
+                font-size: 3rem;
+                color: darken($colorPlaceholder, 15%);
+            }
+        }
+    }
+
+    // ==========================================
+    // SECCIÓN CONTACTOS
+    // ==========================================
+    .seccion-contactos {
+        background-color: #ffffff;
+        padding: 3rem 0;
+        max-width: 100%;
+        border-top: 1px solid #e1e5e8;
+        
+        .titulo-contactos {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .bloque-contacto {
+            margin-bottom: 1.5rem;
+
+            .icono-contacto {
+                font-size: 2.5rem;
+                color: $colorHojas;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .subtitulo-contacto {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 0.2rem;
+                font-size: 1.1rem;
+            }
+
+            .texto-contacto {
+                color: #666;
+                font-size: 0.95rem;
+                margin: 0;
+            }
+        }
+    }
 }
