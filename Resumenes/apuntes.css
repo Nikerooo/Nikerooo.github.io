@@ -1,0 +1,355 @@
+/*apuntes en css*/
+
+#id {                           /*Se usa el # para las ID*/
+    color: cyan;                    /*Se usa para dar color*/
+    width: 10px;                      /*ancho*/
+    height: 10px;                     /*alto*/
+    background-color: none ;          /*color del fondo*/
+    background-image: none;           /*Imagen en el fondo*/
+    padding: 10px ;                   /*Separacion interior*/
+    border: none;                     /*borde*/
+    margin: none;                     /*Margen exterior*/
+    text-align: none;                 /*Alinear texto*/
+    font-family: none;                /*cambiar tipografia*/
+    font-size: none;                  /*Cambiar tamaño de la letra*/
+    font-weight: none;                /*Espesor de las letras*/
+    background-repeat: none;
+    color: inherit                     /* Hereda el atributo de la funcion padre*/
+}
+
+h1{                                    /*para modificar algun tipo de etiqueta en particular escribimos la etiqueta*/
+    color: red;
+}
+
+.clase {                                /* Usamos el . para indicar una clase*/
+    color: none;
+}
+
+*{                                      /* Usamos * para modificar TODO */
+    color: none;
+}
+
+
+/* -------------------------------| FLEXBOX |---------------------------------------*/
+
+.container {
+    display: flex;              /* Activa Flexbox */
+
+    flex-direction: row;        /* Dirección principal */
+                                /* row | column | row-reverse | column-reverse */
+
+    justify-content: center;    /* Alineación eje principal */
+                                /* flex-start | flex-end | center */
+                                /* space-between | space-around | space-evenly */
+
+    align-items: center;        /* Alineación eje cruzado */
+                                /* stretch | center | flex-start | flex-end | baseline */
+
+    flex-wrap: wrap;            /* Permite salto de línea */
+                                /* nowrap | wrap | wrap-reverse */
+
+    align-content: center;      /* Alinea múltiples líneas */
+                                /* (solo si hay wrap) */
+
+    gap: 10px;                  /* Espacio entre elementos */
+}
+
+.item {
+    flex-grow: 1;               /* Cuánto crece el elemento */
+                                /* 0 = no crece */
+
+    flex-shrink: 1;             /* Cuánto se reduce */
+
+    flex-basis: 200px;          /* Tamaño base */
+
+    flex: 1 1 200px;            /* Shorthand: grow shrink basis */
+
+    align-self: center;         /* Sobrescribe align-items */
+
+    order: 2;                   /* Orden visual (menor = primero) */
+}
+
+
+
+/* -----------------------------------/ Resumen Grid / ------------------------------------------*/
+
+
+
+
+
+.container {
+    display: grid;                          /* Activa Grid */
+
+    /* === ESTRUCTURA === */
+
+    grid-template-columns: 1fr 1fr 1fr;     /* Define columnas */
+                                            /* px | % | fr | auto */
+
+    grid-template-rows: auto 200px;         /* Define filas */
+
+    gap: 10px;                              /* Espacio entre celdas */
+
+
+    /* === ALINEACIÓN DE ÍTEMS === */
+
+    justify-items: center;                  /* Alineación horizontal dentro de la celda */
+
+    align-items: center;                    /* Alineación vertical dentro de la celda */
+
+    place-items: center;                    /* Shorthand: align-items + justify-items */
+
+
+    /* === ALINEACIÓN DE LA GRILLA COMPLETA === */
+
+    justify-content: center;                /* Alinea toda la grilla horizontalmente */
+
+    align-content: center;                  /* Alinea toda la grilla verticalmente */
+
+
+    /* === FUNCIONES Y UNIDADES === */
+
+    grid-template-columns: repeat(3, 1fr);  
+    /* Repite 3 columnas iguales */
+
+    grid-template-columns: minmax(100px, 1fr);
+    /* Mínimo 100px, máximo flexible */
+
+    grid-template-columns: auto 50% 1fr;
+    /* Mezcla de unidades */
+
+
+    /* === ÁREAS NOMBRADAS === */
+
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+}
+
+
+/* === POSICIONAMIENTO DE ÍTEMS === */
+
+.item {
+    grid-column: 1 / 3;        /* Desde columna 1 hasta 3 */
+
+    grid-row: 2 / 4;           /* Desde fila 2 hasta 4 */
+
+    grid-area: 1 / 1 / 3 / 3;  /* row-start / col-start / row-end / col-end */
+}
+
+
+/* === ASIGNACIÓN DE ÁREAS === */
+
+.header {
+    grid-area: header;         /* Se ubica en el área "header" */
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   GUÍA PRÁCTICA DE MEDIA QUERIES
+   ========================================================================== 
+   ¿Qué son? Son reglas de CSS que permiten aplicar estilos condicionales 
+   según las características del dispositivo (pantalla, resolución, orientación).
+   Son la base del Diseño Responsivo (Responsive Web Design).
+   ========================================================================== */
+
+/* === 1. ANATOMÍA Y ESTRUCTURA BÁSICA === */
+
+@media screen and (max-width: 768px) {
+    /* [@]      -> Regla @ (At-rule) que inicia la condición.
+       [screen] -> Tipo de medio (Media Type). Apunta a pantallas.
+       [and]    -> Operador lógico que conecta las condiciones.
+       [(max-width: 768px)] -> Característica (Media Feature). La condición a cumplir.
+    */
+
+    body {
+        background-color: lightblue; /* Se aplica SOLO si la pantalla mide 768px o menos */
+    }
+}
+
+
+/* === 2. TIPOS DE MEDIO (Media Types) === */
+
+@media all { /* Afecta a todos los dispositivos (Opción por defecto si se omite) */ }
+@media screen { /* Diseñado principalmente para pantallas de computadoras, tablets, celulares */ }
+@media print { /* Diseñado para el material impreso y vista previa de impresión */ }
+
+
+/* === 3. OPERADORES LÓGICOS === */
+
+/* AND (Y): Ambas condiciones deben cumplirse */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    .card { padding: 15px; } /* Rango intermedio: entre 480px y 768px */
+}
+
+/* OR / COMA (,): Se aplica si al menos UNA de las condiciones se cumple */
+@media screen and (max-width: 600px), screen and (orientation: portrait) {
+    .sidebar { display: none; } /* Pantallas chicas O celulares en vertical */
+}
+
+/* NOT (NO): Invierte el resultado de la consulta (Requiere especificar el Media Type) */
+@media not screen and (color) {
+    body { background: white; } /* Pantallas que NO sean a color */
+}
+
+
+/* === 4. CARACTERÍSTICAS COMUNES (Media Features) === */
+
+@media (orientation: portrait)  { /* Dispositivo en vertical (alto > ancho) */ }
+@media (orientation: landscape) { /* Dispositivo en horizontal (ancho > alto) */ }
+@media (hover: hover)           { /* Dispositivos con puntero preciso que permite hover (Mouse) */ }
+@media (hover: none)            { /* Dispositivos táctiles donde NO existe el hover */ }
+
+
+/* === 5. NUEVA SINTAXIS (CSS Moderno - Rangos Matemáticos) === */
+
+@media (width <= 768px) {
+    /* Equivalente exacto a (max-width: 768px) - Más limpio y fácil de leer */
+    .menu { flex-direction: column; }
+}
+
+@media (480px <= width <= 1024px) {
+    /* Equivalente a un rango AND entre ambos valores */
+    .hero { font-size: 1.5rem; }
+}
+
+
+
+
+/* ==========================================================================
+   ESTRATEGIA RECOMENDADA: MOBILE-FIRST (Breakpoints Estándar)
+   ==========================================================================
+   Se escribe el CSS base pensando en celulares (sin media queries) y se 
+   usan 'min-width' para escalar los estilos hacia pantallas más grandes.
+   ========================================================================== */
+
+/* --- Estilos Base (Celulares / Mobile) --- */
+.container {
+    width: 100%;
+    padding: 10px;
+}
+
+/* --- Dispositivos Móviles Grandes / Tablets (Dispositivos SM) --- */
+@media (min-width: 576px) {
+    .container { padding: 20px; }
+}
+
+/* --- Tablets en adelante (Dispositivos MD) --- */
+@media (min-width: 768px) {
+    .container { max-width: 720px; }
+}
+
+/* --- Computadoras / Laptops (Dispositivos LG) --- */
+@media (min-width: 992px) {
+    .container { max-width: 960px; }
+}
+
+/* --- Pantallas Grandes / Escritorio (Dispositivos XL) --- */
+@media (min-width: 1200px) {
+    .container { max-width: 1140px; }
+}
+
+/* --- Pantallas Ultra Anchas (Dispositivos XXL) --- */
+@media (min-width: 1400px) {
+    .container { max-width: 1320px; }
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   GUÍA PRÁCTICA DE GUTTERS (ESPACIADO DE GRILLAS)
+   ========================================================================== 
+   ¿Qué son? Son los espacios o "callejones" entre las columnas y filas de un 
+   contenedor. En CSS moderno se controlan con la propiedad 'gap'. Podemos decir
+   que es el espacio "invisible" entre las columnas y filas
+   ========================================================================== */
+
+/* === 1. GUTTERS EN CSS GRID (El estándar de oro) === */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+
+    /* --- Sintaxis Individual --- */
+    column-gap: 20px;       /* Define el espacio vertical SOLO entre columnas */
+    row-gap: 15px;          /* Define el espacio horizontal SOLO entre filas */
+
+    /* --- Sintaxis Shorthand (Abreviada) --- */
+    gap: 15px 20px;         /* [row-gap] [column-gap] */
+    
+    /* --- Valor Único --- */
+    gap: 16px;              /* Aplica 16px tanto a filas como a columnas */
+}
+
+
+/* === 2. GUTTERS EN FLEXBOX (Soportado en navegadores modernos) === */
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;        /* Necesario para que las filas bajen y se note el row-gap */
+    
+    /* Al igual que en Grid, 'gap' en Flexbox separa los ítems sin tocar 
+       los bordes exteriores del contenedor principal */
+    gap: 24px;              
+}
+
+
+/* === 3. UNIDADES RECOMENDADAS PARA GUTTERS === */
+
+.cards-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    /* Fijos (Absolutos): Ideales para layouts rígidos o de componentes pequeños */
+    gap: 10px;              
+
+    /* Relativos (Tipografía): Se adaptan al tamaño de fuente del usuario/contenedor */
+    gap: 1.5rem;            
+
+    /* Dinámicos (Viewport): El espacio cambia según el tamaño de la pantalla */
+    gap: 2vw;               
+
+    /* Mixtos avanzados: Mínimo 10px, ideal 2% del ancho, máximo 24px */
+    gap: clamp(10px, 2vw, 24px); 
+}
+
+
+/* === 4. BUENAS PRÁCTICAS Y COMPORTAMIENTO === */
+
+.grid-item {
+    background-color: #f0f0f0;
+    /* NOTA: Los gutters NO modifican el padding interno de este ítem,
+       ni le suman márgenes invisibles que rompan el ancho del 100%. */
+}
+
+/* Antiguamente (Herencia de Bootstrap 3/4): 
+   Para simular gutters se usaban márgenes negativos en el contenedor padre 
+   y paddings laterales en los hijos. Hoy en día, con 'gap', esa técnica 
+   quedó obsoleta. */
+
+
+
+
+

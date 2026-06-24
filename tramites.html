@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trámites - Mutual El Roble</title>
+    <meta name="description" content="Gestión online de trámites, órdenes médicas y credenciales de Mutual El Roble.">
+
+    <!-- Fuentes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;700&family=Saira+Semi+Condensed:wght@700&display=swap">
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ">
+
+    <!-- ENCABEZADO -->
+       <header class="header"> <!-- Clase header, inicio del encabezado -->
+
+
+      <div class="container-fluid"> <!-- Contenedor fluido para que ocupe todo el ancho de la pantalla -->
+
+        <div class="row align-items-center">  <!-- Crea una fila con elementos alineados verticalmente -->
+
+          <!-- Logo: ocupa 3 cols en desktop, 6 en tablet, 8 en mobile -->
+          <div class="col-8 col-md-3 col-lg-3 header_logo text-start">
+            <a href="index.html" class="header_logo">
+              <img src="Img/LogoArbol.png" alt="Logo de El Roble" class="logo" >
+            </a> <!-- Imagen del logo con clase "logo" para estilos -->
+          </div>
+
+          <!-- Nav: visible solo en tablet y desktop, oculto en mobile -->
+          <nav class="col-md-6 col-lg-6 header_nav text-center d-none d-md-block">  <!-- Tamaño 6 para medio o largo, para chico se oculta-->
+            <ul class="d-flex justify-content-center gap-4 mb-0"> <!-- Contiene los links de navegacion, activamos el modo flex para alinear, y lo ponemos verticalmente en el centro-->
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="cartilla.html">Cartilla</a></li> <!-- Link a la sección de cartilla -->
+              <li><a href="turnos.html">Turnos</a></li>
+              <li><a href="tramites.html">Tramites</a></li>
+            </ul>
+          </nav>
+
+          <!-- Usuario + btn hamburguesa: siempre visible -->
+          <div class="col-4 col-md-3 col-lg-3 header_user text-end d-flex justify-content-end align-items-center gap-3">
+            
+            <a href="loginUsuario.html" class="header_logo">
+              <img src="Img/iconoUser.png" alt="Icono de usuario" class="user-icon" onclick="toggleUserMenu()"> <!-- Icono usuario clickable -->
+            </a>
+
+            
+            <!-- Botón hamburguesa: solo visible en mobile -->
+             <!-- data-bs-toggle="collapse" -> Le indica que al hacer click, va a mostrar u ocultar (colapsar) -->
+             <!-- data-bs-target="#mobileMenu" -> Indica que elemento tiene que esconder o mostrar-->
+             <!-- aria-label="Abrir menú" -> Le da un nombre al btn -->
+
+            <button class="btn-hamburguesa d-md-none" 
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mobileMenu"
+              aria-label="Abrir menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Menú mobile desplegable: oculto por defecto, aparece al hacer click -->
+        <div class="collapse d-md-none" id="mobileMenu">
+            <ul>  <!-- Crea filas y columnas -->
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Cartilla</a></li>
+                <li><a href="#">Turnos</a></li>
+                <li><a href="#">Tramites</a></li>
+            </ul>
+        </div>
+
+      </div>
+    </header>
+
+    <div class="pagina-tramites">
+    <main>
+
+        <!-- TÍTULO PRINCIPAL -->
+        <section class="py-5 text-center">
+            <div class="container">
+                <h1 class="titulo-hero">Gestioná Tu Trámite</h1>
+            </div>
+        </section>
+
+        <!-- GRILLA DE TRÁMITES -->
+        <section class="py-4">
+            <div class="container">
+                <div class="row g-4" id="grilla-tramites">
+
+                    <!-- Recetas Digitales -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4"
+                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Accedé a tus recetas de forma online">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 576 512" fill="currentColor"><path d="M218.17 424.14c-2.95-5.92-8.09-6.52-10.17-6.52s-7.22.59-10.02 6.19l-7.67 15.34c-6.37 12.78-25.03 11.37-29.48-2.09L144 386.59l-10.61 31.88c-5.89 17.66-22.38 29.53-41 29.53H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h12.39c4.83 0 9.11-3.08 10.64-7.66l18.19-54.64c3.3-9.81 12.44-16.41 22.78-16.41s19.48 6.59 22.77 16.41l13.88 41.64c19.75-16.19 54.06-9.7 66 14.16 1.89 3.78 5.49 5.95 9.36 6.26v-82.12l128-127.09V160H248c-13.2 0-24-10.8-24-24V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24v-40l-128-.11c-16.12-.31-30.58-9.28-37.83-23.75zM384 121.9c0-6.3-2.5-12.4-7-16.9L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1zm-96 225.06V416h68.99l161.68-162.78-67.88-67.88L288 346.96zm280.54-179.63l-31.87-31.87c-9.94-9.94-26.07-9.94-36.01 0l-27.25 27.25 67.88 67.88 27.25-27.25c9.95-9.94 9.95-26.07 0-36.01z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Recetas Digitales</h3>
+                            <p class="texto-tarjeta">Solicitá y descargá tus órdenes médicas de forma rápida, segura y 100% online</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Recetas Digitales">Ingresar</button>
+                        </article>
+                    </div>
+
+                    <!-- Turnos Online -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4"
+                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Reservá y gestioná tus turnos médicos">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 640 512" fill="currentColor"><path d="M496 224c-79.6 0-144 64.4-144 144s64.4 144 144 144 144-64.4 144-144-64.4-144-144-144zm64 150.3c0 5.3-4.4 9.7-9.7 9.7h-60.6c-5.3 0-9.7-4.4-9.7-9.7v-76.6c0-5.3 4.4-9.7 9.7-9.7h12.6c5.3 0 9.7 4.4 9.7 9.7V352h38.3c5.3 0 9.7 4.4 9.7 9.7v12.6zM320 368c0-27.8 6.7-54.1 18.2-77.5-8-1.5-16.2-2.5-24.6-2.5h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-8.3C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h347.1c-45.3-31.9-75.1-84.5-75.1-144zm-96-112c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Turnos Online</h3>
+                            <p class="texto-tarjeta">Reservá, modificá o cancelá tus citas de atención médica con nuestros profesionales</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Turnos Online">Ingresar</button>
+                        </article>
+                    </div>
+
+                    <!-- Autorización de Estudios -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4"
+                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Autorizá tus prácticas médicas online">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 384 512" fill="currentColor"><path d="M377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-153 31V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 160v48c0 4.4-3.6 8-8 8h-56v56c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-56h-56c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h56v-56c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v56h56c4.4 0 8 3.6 8 8z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Autorización De Estudios</h3>
+                            <p class="texto-tarjeta">Gestioná la aprobación de tus análisis clínicos y prácticas médicas sin moverte</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Autorización de Estudios">Ingresar</button>
+                        </article>
+                    </div>
+
+                    <!-- Credencial Digital -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4"
+                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Tu credencial siempre disponible">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 576 512" fill="currentColor"><path d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Credencial Digital</h3>
+                            <p class="texto-tarjeta">Accedé a tu identificación virtual para presentar ante prestadores y farmacias adheridas</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Credencial Digital">Ingresar</button>
+                        </article>
+                    </div>
+
+                    <!-- Reintegros -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 512 512" fill="currentColor"><path d="M255.545 8c-66.269.119-126.438 26.233-170.86 68.685L48.971 40.971C33.851 25.851 8 36.559 8 57.941V192c0 13.255 10.745 24 24 24h134.059c21.382 0 32.09-25.851 16.971-40.971l-41.75-41.75c30.864-28.899 70.801-44.907 113.23-45.273 92.398-.798 170.283 73.977 169.484 169.442C423.236 348.009 349.816 424 256 424c-41.127 0-79.997-14.678-110.63-41.556-4.743-4.161-11.906-3.908-16.368.553L89.34 422.659c-4.872 4.872-4.631 12.815.482 17.433C133.798 479.813 192.074 504 256 504c136.966 0 247.999-111.033 248-247.998C504.001 119.193 392.354 7.755 255.545 8z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Reintegros</h3>
+                            <p class="texto-tarjeta">Presentá tus comprobantes y solicitá las devoluciones de tus gastos médicos abonados</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Reintegros">Ingresar</button>
+                        </article>
+                    </div>
+
+                    <!-- Actualización de Datos -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 384 512" fill="currentColor"><path d="M358.4 3.2L320 48 265.6 3.2a15.9 15.9 0 0 0-19.2 0L192 48 137.6 3.2a15.9 15.9 0 0 0-19.2 0L64 48 25.6 3.2C15-4.7 0 2.8 0 16v480c0 13.2 15 20.7 25.6 12.8L64 464l54.4 44.8a15.9 15.9 0 0 0 19.2 0L192 464l54.4 44.8a15.9 15.9 0 0 0 19.2 0L320 464l38.4 44.8c10.5 7.9 25.6.4 25.6-12.8V16c0-13.2-15-20.7-25.6-12.8zM320 360c0 4.4-3.6 8-8 8H72c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h240c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H72c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h240c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H72c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h240c4.4 0 8 3.6 8 8v16z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Actualización De Datos</h3>
+                            <p class="texto-tarjeta">Modificá tu información de contacto y grupo familiar para mantenerte siempre comunicado</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Actualización de Datos">Ingresar</button>
+                        </article>
+                    </div>
+
+                    <!-- Estado de Cuenta -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 640 512" fill="currentColor"><path d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zM480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48 0-61.9-50.1-112-112-112z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Pago De Cuenta / Estado De Cuenta</h3>
+                            <p class="texto-tarjeta">Revisá tus movimientos mensuales y aboná tus cuotas de manera segura</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Estado de Cuenta">Ingresar</button>
+                        </article>
+                    </div>
+
+                    <!-- Cartilla Médica -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="tarjeta-tramite h-100 text-center p-4">
+                            <div class="icono-tarjeta mb-3">
+                                <svg width="40" height="40" viewBox="0 0 448 512" fill="currentColor"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zM104 424c0 13.3 10.7 24 24 24s24-10.7 24-24-10.7-24-24-24-24 10.7-24 24zm216-135.4v49c36.5 7.4 64 39.8 64 78.4v41.7c0 7.6-5.4 14.2-12.9 15.7l-32.2 6.4c-4.3.9-8.5-1.9-9.4-6.3l-3.1-15.7c-.9-4.3 1.9-8.6 6.3-9.4l19.3-3.9V416c0-62.8-96-65.1-96 1.9v26.7l19.3 3.9c4.3.9 7.1 5.1 6.3 9.4l-3.1 15.7c-.9 4.3-5.1 7.1-9.4 6.3l-31.2-4.2c-7.9-1.1-13.8-7.8-13.8-15.9V416c0-38.6 27.5-70.9 64-78.4v-45.2c-2.2.7-4.4 1.1-6.6 1.9-18 6.3-37.3 9.8-57.4 9.8s-39.4-3.5-57.4-9.8c-7.4-2.6-14.9-4.2-22.6-5.2v81.6c23.1 6.9 40 28.1 40 53.4 0 30.9-25.1 56-56 56s-56-25.1-56-56c0-25.3 16.9-46.5 40-53.4v-80.4C48.5 301 0 355.8 0 422.4v44.8C0 491.9 20.1 512 44.8 512h358.4c24.7 0 44.8-20.1 44.8-44.8v-44.8c0-72-56.8-130.3-128-133.8z"/></svg>
+                            </div>
+                            <h3 class="titulo-tarjeta">Cartilla Médica</h3>
+                            <p class="texto-tarjeta">Consultá el listado completo de los centros de salud y especialistas disponibles</p>
+                            <button class="btn btn-tramite w-100 mt-auto btn-ingresar" data-tramite="Cartilla Médica">Ingresar</button>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN FAQ (acordeón) -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center titulo-seccion mb-4">Preguntas Frecuentes</h2>
+                <div class="accordion shadow-sm" id="faq">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="p1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#r1" aria-expanded="true">
+                                ¿Cuánto demoran las Autorizaciones de Estudios?
+                            </button>
+                        </h2>
+                        <div id="r1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                La mayoría de las prácticas médicas básicas se autorizan de manera inmediata a través de la plataforma virtual. Prácticas de alta complejidad pueden demorar hasta 48 horas hábiles.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="p2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r2" aria-expanded="false">
+                                ¿Cómo presento un comprobante para Reintegros?
+                            </button>
+                        </h2>
+                        <div id="r2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Hacé clic en "Ingresar" del módulo de Reintegros, adjuntá la foto o PDF de tu factura legal y la orden médica. Recibirás la acreditación en tu CBU registrado.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="p3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r3" aria-expanded="false">
+                                ¿Cómo descargo mi Credencial Digital?
+                            </button>
+                        </h2>
+                        <div id="r3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Ingresá al módulo de Credencial Digital desde la sección Trámites. Una vez autenticado con tu número de asociado y contraseña, podrás visualizar y descargar tu credencial en formato PDF para presentar ante cualquier prestador o farmacia adherida.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="p4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r4" aria-expanded="false">
+                                ¿Con cuánta anticipación puedo pedir un turno médico?
+                            </button>
+                        </h2>
+                        <div id="r4" class="accordion-collapse collapse" data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Podés reservar turnos con hasta 30 días de anticipación desde el módulo de Turnos Online. Para especialidades de alta demanda recomendamos hacerlo con la mayor anticipación posible. Las cancelaciones sin aviso previo de 24 horas pueden generar restricciones temporales en tu cuenta.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERÍA "ESTAMOS CERCA TUYO" -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center titulo-seccion mb-4">Estamos Cerca Tuyo</h2>
+
+                <!-- Carrusel para celular -->
+                <div class="d-md-none">
+                    <div id="carrusel-fotos" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/medico-1.png" class="d-block w-100 imagen-galeria rounded" alt="Médico prescribiendo receta">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/medico-2.png" class="d-block w-100 imagen-galeria rounded" alt="Médico atendiendo a un paciente mayor">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/medico-3.png" class="d-block w-100 imagen-galeria rounded" alt="Doctora con estetoscopio">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-fotos" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carrusel-fotos" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grilla para tablet y PC -->
+                <div class="d-none d-md-flex row g-3">
+                    <div class="col-md-4">
+                        <img src="img/medico-1.png" alt="Médico prescribiendo receta" class="img-fluid rounded imagen-galeria w-100">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/medico-2.png" alt="Médico atendiendo a un paciente mayor" class="img-fluid rounded imagen-galeria w-100">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/medico-3.png" alt="Doctora con estetoscopio" class="img-fluid rounded imagen-galeria w-100">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-pagina py-5 text-white">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-12 col-md-4 text-center text-md-start">
+                    <a href="#" class="boton-social me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Visitanos en Facebook" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M31.997 15.999c0-8.836-7.163-15.999-15.999-15.999s-15.999 7.163-15.999 15.999c0 7.985 5.851 14.604 13.499 15.804v-11.18h-4.062v-4.625h4.062v-3.525c0-4.010 2.389-6.225 6.043-6.225 1.75 0 3.581 0.313 3.581 0.313v3.937h-2.017c-1.987 0-2.607 1.233-2.607 2.498v3.001h4.437l-0.709 4.625h-3.728v11.18c7.649-1.2 13.499-7.819 13.499-15.804z"/></svg>
+                    </a>
+                    <a href="#" class="boton-social me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Seguinos en X" aria-label="X">
+                        <svg width="20" height="20" viewBox="0 0 23 24" fill="currentColor"><path d="M13.969 10.157l8.738-10.157h-2.071l-7.587 8.819-6.060-8.819h-6.989l9.164 13.336-9.164 10.651h2.071l8.012-9.313 6.4 9.313h6.989l-9.503-13.831zM11.133 13.454l-8.316-11.895h3.181l14.64 20.941h-3.181l-6.324-9.046z"/></svg>
+                    </a>
+                    <a href="#" class="boton-social" data-bs-toggle="tooltip" data-bs-placement="top" title="Contactanos por WhatsApp" aria-label="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 28" fill="currentColor"><path d="M15.391 15.219c0.266 0 2.812 1.328 2.922 1.516 0.031 0.078 0.031 0.172 0.031 0.234 0 0.391-0.125 0.828-0.266 1.188-0.359 0.875-1.813 1.437-2.703 1.437-0.75 0-2.297-0.656-2.969-0.969-2.234-1.016-3.625-2.75-4.969-4.734-0.594-0.875-1.125-1.953-1.109-3.031v-0.125c0.031-1.031 0.406-1.766 1.156-2.469 0.234-0.219 0.484-0.344 0.812-0.344 0.187 0 0.375 0.047 0.578 0.047 0.422 0 0.5 0.125 0.656 0.531 0.109 0.266 0.906 2.391 0.906 2.547 0 0.594-1.078 1.266-1.078 1.625 0 0.078 0.031 0.156 0.078 0.234 0.344 0.734 1 1.578 1.594 2.141 0.719 0.688 1.484 1.141 2.359 1.578 0.109 0.063 0.219 0.109 0.344 0.109 0.469 0 1.25-1.516 1.656-1.516zM12.219 23.5c5.406 0 9.812-4.406 9.812-9.812s-4.406-9.812-9.812-9.812-9.812 4.406-9.812 9.812c0 2.063 0.656 4.078 1.875 5.75l-1.234 3.641 3.781-1.203c1.594 1.047 3.484 1.625 5.391 1.625zM12.219 1.906c6.5 0 11.781 5.281 11.781 11.781s-5.281 11.781-11.781 11.781c-1.984 0-3.953-0.5-5.703-1.469l-6.516 2.094 2.125-6.328c-1.109-1.828-1.687-3.938-1.687-6.078 0-6.5 5.281-11.781 11.781-11.781z"/></svg>
+                    </a>
+                </div>
+                <div class="col-12 col-md-8 text-center text-md-end">
+                    <p class="fw-bold mb-1">NUESTROS DATOS;</p>
+                    <p class="mb-1 small"><strong>Dirección:</strong> Av. Rivadavia 1420, Piso 2, Ciudad Autónoma de Buenos Aires.</p>
+                    <p class="mb-1 small"><strong>Teléfono / Guardia:</strong> 0810-333-6888 (Atención al Asociado)</p>
+                    <p class="mb-0 small"><strong>Horarios:</strong> Lunes a Viernes de 08:00 a 16:00 hs.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL que se abre al hacer clic en "Ingresar" -->
+    <div class="modal fade" id="modal-tramite" tabindex="-1" aria-labelledby="titulo-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title titulo-modal-texto" id="titulo-modal">Acceso al Sistema</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="texto-modal">Cargando...</p>
+                    <div class="mb-3">
+                        <label for="campo-dni" class="form-label">Número de Credencial o DNI</label>
+                        <input type="text" class="form-control" id="campo-dni" placeholder="Ej: 45222333">
+                    </div>
+                    <div class="mb-3">
+                        <label for="campo-pass" class="form-label">Contraseña de Asociado</label>
+                        <input type="password" class="form-control" id="campo-pass">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-tramite" id="boton-enviar">Iniciar Trámite</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    
+</body>
+</html>

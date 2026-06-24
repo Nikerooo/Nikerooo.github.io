@@ -1,0 +1,472 @@
+@use "sass:color";
+
+$colorHojas: #269482;
+$colorHojasClarito:lighten($colorHojas, 45%);
+$colorTronco: #C07D46;
+$colorTroncoClarito: lighten($colorTronco, 30%);
+
+$verde: $colorHojas; 
+$marron: $colorTronco;
+$fondo: #f8f6f2;
+
+$primary: $verde;
+$body-bg: $fondo;
+$font-family-sans-serif: 'AR One Sans', sans-serif;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.header {
+    display: flex;      // Se activa el flexbox para alinear los elementos horizontalmente
+    background-color: $colorHojas;  // Ponemos de color verde el header
+    padding: 1rem 0;    // 1rem arriba y abajo (1rem = 16px), 0 a los lados en separacion interna
+    border-bottom: 3px solid #000000;  // Línea negra debajo del header
+
+    .header_logo {      // trabajamos en la seccion del logo
+        .logo {     // Trabajamos en el logo
+            max-width: 100px;    // No puede superar los 100px de ancho
+
+            // En mobile el logo puede ser un poco más chico
+            @media (max-width: 576px) { // Media Query, cuando sea inferior a 576px se aplicara la siguiente condicion
+                max-width: 55px;    // No podra superar los 55px de ancho
+            }
+        }
+    }
+
+    .header_nav {   // Trabajamos con la seccion del desplazamiento o menu
+        ul {    // Lista desordenada
+            list-style: none;   // No se aplican estilos
+
+            li a {  // Aplica el mismo estilo a todas las secciones 
+                text-decoration: none;  // No se añade decoracion
+                color: #333;    // Se le aplica el color Gris oscuro
+                font-weight: 1000px;   // Ancho de la letra
+                font-size: 25px;   // Tamaño de la letra 
+
+                &:hover {   // Cuando el mouse pase por encima del link
+                    color: $colorTronco;    // Se aplica el color segundario del Sitio
+                }
+            }
+        }
+
+        // En tablet los links pueden tener menos separación
+        @media (max-width: 992px) and (min-width: 577px) {  // Media Query, cuando sea inferior a 992px y superior a 577px se aplicara la siguiente condicion
+            ul {
+                gap: 1.5rem !important; // sobreescribe el gap-4 de Bootstrap - gap define le tamaño de seraparacion entre los links del menu
+                                        // !important se usa para sobreescribir cualquier otro estilo que pueda estar aplicando un gap diferente, en este caso el gap-4 de Bootstrap que es de 2.5rem
+            }
+        }
+    }
+
+    .header_user {  // Trabajamos con la seccion del usuario
+        .user-icon {    // Trabajamos con el icono del usuario
+            width: 100px;    // Ancho del icono
+            cursor: pointer;    // El cursor se convierte en una mano al pasar por encima del icono, indicando que es clickeable
+
+                // En mobile el ícono es levemente más chico
+            @media (max-width: 576px) { // Cuando sea inferior a 576px se aplicara la siguiente condicion
+                width: 36px;    // Ancho del icono de 36px
+            }
+        
+        }
+    }
+}
+
+    // apartado estetico del Botón hamburguesa (las 3 líneas)
+.btn-hamburguesa {
+    background: none;   // Sin fondo
+    border: none;   // Sin borde
+    cursor: pointer; // El cursor se convierte en una mano al pasar por encima del botón, indicando que es clickeable
+    display: flex;  // Activa el estilo flexbox para alinear las líneas del botón
+    flex-direction: column; // Las líneas se apilan verticalmente
+    gap: 5px;   // Espacio entre las líneas del botón
+    padding: 4px;   // Espacio interno del botón
+
+        span {  // Trabajamos con las líneas dentro del botón
+        display: block; // Cada línea es un bloque para ocupar toda la anchura disponible
+        width: 24px;    // Ancho de cada línea
+        height: 2px;    // Altura de cada línea
+        background-color: #333;     // Color de las líneas del botón
+        border-radius: 2px; // Bordes redondeados para un aspecto más suave
+         transition: all 0.3s ease;     // Transición suave para cualquier cambio en el botón (opcional, para animaciones futuras)
+    }
+}
+
+    // Menú desplegable en mobile - Al presionar la amburguesa se le agrega la clase "activo" al menú para mostrarlo, y al volver a presionar se le quita la clase para ocultarlo nuevamente
+#mobileMenu {
+    background-color: $colorHojasClarito; // Fondo verde clarito, coherente con la zona de búsqueda
+    border-top: 2px solid $colorHojas;    // Línea verde para separar del header
+
+    ul {
+
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+
+        li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); // Separador sutil entre items
+
+            &:last-child {
+                border-bottom: none; // El último item no tiene separador
+            }
+
+            a {
+                display: block;
+                padding: 0.85rem 1.25rem;
+                text-decoration: none;
+                color: $colorHojas;      // Links en verde
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: background-color 0.2s ease, padding-left 0.2s ease;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                    padding-left: 1.75rem; // Efecto de sangría al hacer hover
+                    color: $colorTronco;
+                }
+            }
+        }
+    }
+}
+
+
+.pagina-cartilla{
+    main{
+
+        .zona-busqueda {
+            background-color: $colorHojasClarito; // Fondo verde clarito para la zona de búsqueda
+            padding: 1rem; // Espacio interno de la zona de búsqueda
+            border: 3px solid $colorHojas;
+            border-radius: 8px; // Bordes redondeados para un aspecto más suave
+            
+
+            .formulario-busqueda {
+                display: flex;      // Activa el flexbox para alinear los elementos horizontalmente
+                flex-direction: column; // Las filas se apilan verticalmente
+                gap: 1rem;  
+            }
+
+
+            .busqueda-fila {
+                
+                @media (min-width:992px) { // En desktop, las filas se muestran horizontalmente
+                    display:flex;
+                    flex-direction: row; // Las filas se muestran horizontalmente
+                    gap: 1rem;  // Espacio entre los campos de cada fila
+                    align-items: center; // Alinea al fondo para que el botón quede al nivel de los inputs) {
+                    
+                }
+
+                @media (min-width: 577px) and (max-width: 991px) { 
+                    display: flex;
+                    flex-direction: row; 
+                    flex-wrap: wrap; /* 1. OBLIGATORIO: Permite el salto de línea */
+                    gap: 1rem;  
+                    align-items: flex-end; 
+
+                    
+                }
+
+
+                @media (max-width: 576px) { // En mobile, las filas se apilan verticalmente
+                    display:flex;
+                    flex-direction: column !important; // Las filas se apilan verticalmente
+                    align-items: center; // Los campos ocupan todo el ancho disponible
+                    flex-wrap: wrap;
+                }
+            }
+
+
+
+            // Cada campo individual (label + input/select)
+            .campo-formulario {
+                display: flex;
+                flex-direction: column; // label arriba, input abajo
+                gap: 0.25rem;
+                flex: 1; // Todos los campos ocupan el mismo espacio disponible
+
+                // Modificador: campo que crece más (el input de nombre)
+                &--grow {
+                    flex: 2; // Ocupa el doble de espacio que los demás
+                }
+
+                // Modificador: contenedor del botón, sin label
+                &--btn {
+                    flex: 0 0 auto; // No crece ni se encoge, toma el ancho del botón
+                }
+
+                .form-label {
+                    font-size: 0.85rem;
+                    color: #555;
+                    margin-bottom: 0;
+                }
+
+                .select-personalizado,.input-personalizado {
+                    padding: 0.5rem;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    font-size: 0.9rem;
+                    width: 100%;
+
+                    &:focus {
+                        outline: none;
+                        border-color: $colorHojas;
+                    }
+                }
+
+                .btn-enviar {
+                    padding: 0.5rem 1.25rem;
+                    background-color: $colorHojas;
+                    border: none;
+                    border-radius: 4px;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    white-space: nowrap; // Evita que el texto del botón se parta en dos líneas
+
+                    &:hover {
+                        background-color: $colorTronco;
+                    }
+                }
+            }
+        }
+
+
+        .zona-resultados{
+
+            h2{
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .caja-informacion{
+
+                display: grid;
+                gap: 1rem;
+                
+                @media(max-width: 576px){
+
+                    grid-template-columns: 1fr; // 1 para mobiles
+
+                }
+
+                @media (min-width:577px){
+
+                    grid-template-columns: 1fr 1fr; // Para que entren dos fichas por 
+                }
+
+                .caja-ficha{
+
+                    display:flex;
+                    flex-direction: column;
+                    gap: 0.4rem;
+                    border: 2.5px solid $colorTronco;
+                    border-radius: 8px;
+                    background-color: $colorTroncoClarito;
+                    padding: 1rem;
+
+                    @media(max-height:576px){
+
+                        
+
+                    }
+
+                    .caja-fichaInfo{
+
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.75rem;
+                        align-items: flex-start;
+
+                        .caja-fichaFoto{
+
+                            width: 48px;
+                            height: 48px;
+                            border-radius: 50%;
+                            object-fit: cover;  // Cubre todo el espacio
+                            flex-shrink: 0;
+
+                            
+
+                        }
+
+                        .caja-fichaDatos{
+
+                            display:flex;
+                            flex-direction: column;
+                            gap:0.15rem;
+
+                            
+                            .caja-ficha_nombre{
+
+                                font-size: 0.9rem;
+                                font-weight: 700;
+                                color: black;
+                                margin:0;
+
+                            }
+
+                            .caja-ficha_especialidad {
+
+                                font-size: 0.82rem;
+                                color: $colorHojas;
+                                font-weight: 600;
+                                margin: 0;
+
+                            }
+
+                            .caja-ficha_ubicacion {
+
+                                font-size: 0.8rem;
+                                color: #777;
+                                margin: 0;
+
+                            }
+
+                        }
+
+                    }
+
+                    .caja-fichaBtn{
+
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.5rem;
+                        justify-content: center !important;
+                    }
+
+                }
+
+            }
+
+            
+            .caja-mapa{
+                
+                iframe{
+
+                    width: 100%;
+                    border-radius: 8px;
+                    display:block;
+
+                    @media(max-width: 576px){
+                        height: 250px;
+                    }
+
+                    @media (min-width: 577px) and (max-width: 991px) {
+                        height: 300px; // Tablet
+                    }
+
+                    @media (min-width: 992px) {
+                        height: 350px; // Desktop: altura fija que acompaña las 2 filas de cards
+                    }
+                }
+            }
+
+        }
+
+        .btn-turno, .btn-llegar {
+            
+            padding: 0.4rem 2.5rem;
+            background-color: $colorHojas;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-bottom: 0 !important;
+            
+
+
+            &:hover { background-color: $colorHojasClarito; color: black; }
+        }
+
+    }
+}
+
+
+.pagina-tramites {
+
+    .barra-nav { background-color: $colorHojas !important; }
+
+    .titulo-hero {
+        font-family: 'Saira Semi Condensed', sans-serif;
+        font-weight: 700;
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        text-transform: uppercase;
+        color: #010101;
+    }
+
+    .tarjeta-tramite {
+        background: #fff;
+        border: 1px solid #dee3da;
+        border-radius: 8px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+    }
+
+    .btn-tramite {
+        font-family: 'Saira Semi Condensed', sans-serif;
+        font-weight: 700;
+        background-color: $colorHojas;
+        color: #fff;
+        border-radius: 8px;
+        &:hover { background-color: $colorTroncoClarito; color: #fff; }
+    }
+
+    
+
+    .boton-social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: #fff;
+        color: #010101;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: transform 0.2s;
+        &:hover { transform: scale(1.1); color: $colorTroncoClarito; }
+    }
+
+}
+
+footer .pie-pagina { 
+    border-top: 3px solid #000000 !important ;
+    background-color: $colorTronco !important; 
+}
+
+
+
+.pagina-turnos{
+  .card-roble {
+    background: #ffffff;
+    border-top: 8px solid $verde;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .barra-nav {
+    background-color: $verde !important;
+  }
+
+  /* Estilo personalizado para el botón de confirmación */
+  .btn-confirmar {
+      background-color: #fd7e14 !important; /* Color naranja (hexadecimal de Bootstrap) [1, 2] */
+      color: black !important;              /* Letras en color negro [1, 2] */
+      font-weight: bold;                    /* Texto en negrita [3-5] */
+      border: 2px solid #794721;            /* Opcional: borde marrón para dar contraste [6] */
+      padding: 15px;                        /* Espaciado interno para accesibilidad [7, 8] */
+      transition: transform 0.2s;           /* Efecto visual suave al presionar [9] */
+      
+      &:hover {
+          background-color: #e66a05 !important; /* Un naranja más oscuro al pasar el ratón [10] */
+          color: black !important;
+      }
+  }
+
+}

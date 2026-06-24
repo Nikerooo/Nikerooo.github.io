@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Turnos - Mutual El Roble</title>
+  <meta name="description" content="Listado de turnos médicos reservados en Mutual El Roble.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="header"> <!-- Clase header, inicio del encabezado -->
+
+
+      <div class="container-fluid"> <!-- Contenedor fluido para que ocupe todo el ancho de la pantalla -->
+
+        <div class="row align-items-center">  <!-- Crea una fila con elementos alineados verticalmente -->
+
+          <!-- Logo: ocupa 3 cols en desktop, 6 en tablet, 8 en mobile -->
+          <div class="col-8 col-md-3 col-lg-3 header_logo text-start">
+            <a href="index.html" class="header_logo">
+              <img src="img/LogoArbol.png" alt="Logo de El Roble" class="logo" >
+            </a> <!-- Imagen del logo con clase "logo" para estilos -->
+          </div>
+
+          <!-- Nav: visible solo en tablet y desktop, oculto en mobile -->
+          <nav class="col-md-6 col-lg-6 header_nav text-center d-none d-md-block">  <!-- Tamaño 6 para medio o largo, para chico se oculta-->
+            <ul class="d-flex justify-content-center gap-4 mb-0"> <!-- Contiene los links de navegacion, activamos el modo flex para alinear, y lo ponemos verticalmente en el centro-->
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="cartilla.html">Cartilla</a></li> <!-- Link a la sección de cartilla -->
+              <li><a href="turnos.html">Turnos</a></li>
+              <li><a href="tramites.html">Tramites</a></li>
+            </ul>
+          </nav>
+
+          <!-- Usuario + btn hamburguesa: siempre visible -->
+          <div class="col-4 col-md-3 col-lg-3 header_user text-end d-flex justify-content-end align-items-center gap-3">
+            
+            <a href="loginUsuario.html" class="header_logo">
+              <img src="img/iconoUser.png" alt="Icono de usuario" class="user-icon" onclick="toggleUserMenu()"> <!-- Icono usuario clickable -->
+            </a>
+
+            
+            <!-- Botón hamburguesa: solo visible en mobile -->
+             <!-- data-bs-toggle="collapse" -> Le indica que al hacer click, va a mostrar u ocultar (colapsar) -->
+             <!-- data-bs-target="#mobileMenu" -> Indica que elemento tiene que esconder o mostrar-->
+             <!-- aria-label="Abrir menú" -> Le da un nombre al btn -->
+
+            <button class="btn-hamburguesa d-md-none" 
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mobileMenu"
+              aria-label="Abrir menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Menú mobile desplegable: oculto por defecto, aparece al hacer click -->
+        <div class="collapse d-md-none" id="mobileMenu">
+            <ul>  <!-- Crea filas y columnas -->
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Cartilla</a></li>
+                <li><a href="#">Turnos</a></li>
+                <li><a href="#">Tramites</a></li>
+            </ul>
+        </div>
+
+      </div>
+    </header>
+
+  <!-- Contenido principal -->
+  <main class="container my-5">
+    <h1 class="text-center mb-5 titulo-seccion display-5">LISTA DE TURNOS</h1>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10">
+        <section class="card-roble p-4 shadow-sm">
+  <!-- Vista en pantallas grandes: tabla -->
+  <div class="table-responsive d-none d-md-block">
+    <table class="table table-striped table-hover">
+      <thead class="table-light text-green fw-bold">
+        <tr>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Especialidad</th>
+          <th>Profesional</th>
+          <th>Paciente</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>14/05/2026</td>
+          <td>10:00</td>
+          <td>Cardiología</td>
+          <td>Dr. Juan Pérez</td>
+          <td>Pepe Honguito</td>
+          <td>
+            <a href="turnos-confirmacion.html" class="btn btn-sm btn-info">Ver</a>
+            <a href="#" class="btn btn-sm btn-danger">Cancelar</a>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Vista en pantallas chicas: tarjetas -->
+  <div class="d-block d-md-none">
+    <div class="card mb-3">
+      <div class="card-body">
+        <p><strong>Fecha:</strong> 14/05/2026</p>
+        <p><strong>Hora:</strong> 10:00</p>
+        <p><strong>Especialidad:</strong> Cardiología</p>
+        <p><strong>Profesional:</strong> Dr. Juan Pérez</p>
+        <p><strong>Paciente:</strong> Pepe Honguito</p>
+        <div class="d-grid gap-2">
+          <a href="turnos-confirmacion.html" class="btn btn-info">Ver</a>
+          <a href="#" class="btn btn-danger">Cancelar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="pie-pagina text-black pt-5 pb-4 mt-auto">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-4 text-md-right">
+          <h5 class="fw-bold mb-1">EL ROBLE MUTUAL</h5>
+          <div class="mt-2">
+            <a href="#" class="boton-social me-3"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="boton-social me-3"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="boton-social"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-md-8 mb-5 text-end">
+          <a href="mailto:info@elroblemutual.com" class="boton-social me-3"><i class="bi bi-envelope"></i></a>
+          <span class="fw-bold">Contacto: elroble@mutual.ar</span>
+        </div>
+      </div>
+      <hr class="bg-black">
+      <p class="text-center small mb-0">&copy; 2026 Mutual El Roble</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
