@@ -12221,6 +12221,12 @@ footer .pie-pagina {
   justify-content: center;
   object-fit: cover;
 }
+@media (min-width: 992px) {
+  .pagina-principal .seccion-hero .fotoEntrada {
+    height: 65vh;
+    object-position: 50% 20%;
+  }
+}
 .pagina-principal .seccion-hero .barra-iconos-hero {
   background-color: rgb(230.8669354839, 205.2016129032, 184.1330645161);
   padding: 1.2rem 0;
@@ -12229,49 +12235,64 @@ footer .pie-pagina {
   font-size: 1.8rem;
   color: #269482;
 }
-.pagina-principal .seccion-info {
-  padding: 4rem 0;
-}
-.pagina-principal .seccion-info .titulo-info {
-  font-size: 1.7rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-.pagina-principal .seccion-info .subtitulo-info {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-.pagina-principal .seccion-info .texto-info {
-  font-size: 0.95rem;
-  color: #666;
-  line-height: 1.5;
-  max-width: 90%;
-  margin: 0 auto;
-}
-.pagina-principal .seccion-info .imagen-seccion-placeholder {
+.pagina-principal .seccion-fondo-completo {
+  position: relative;
   width: 100%;
-  max-width: 250px;
-  height: 180px;
-  background-color: #caced1;
-  border-radius: 8px;
-  margin: 0 auto;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  padding: 4rem 0;
+  border: solid 1px #000000;
 }
-.pagina-principal .seccion-info .imagen-seccion-placeholder::after {
-  content: "\f424";
-  font-family: "bootstrap-icons";
-  font-size: 3rem;
-  color: rgb(161.0454545455, 168.1363636364, 173.4545454545);
+.pagina-principal .seccion-fondo-completo .foto-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 1;
+  object-position: 50% 25%;
 }
-.pagina-principal .seccion-info .btn-accion {
+.pagina-principal .seccion-fondo-completo .capa-oscura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.pagina-principal .seccion-fondo-completo .contenido-superpuesto {
+  position: relative;
+  z-index: 3;
+}
+.pagina-principal .seccion-fondo-completo .contenido-superpuesto .titulo-banner {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.pagina-principal .seccion-fondo-completo .contenido-superpuesto .subtitulo-banner {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.pagina-principal .seccion-fondo-completo .contenido-superpuesto .texto-banner {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+.pagina-principal .seccion-fondo-completo .btn-accion {
   background-color: #269482;
   color: white;
-  padding: 0.6rem 2.5rem;
+  padding: 0.8rem 3rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
@@ -12279,8 +12300,9 @@ footer .pie-pagina {
   transition: background-color 0.3s ease, transform 0.2s;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-top: 1rem;
 }
-.pagina-principal .seccion-info .btn-accion:hover {
+.pagina-principal .seccion-fondo-completo .btn-accion:hover {
   background-color: rgb(27.5806451613, 107.4193548387, 94.3548387097);
   color: white;
   transform: translateY(-2px);

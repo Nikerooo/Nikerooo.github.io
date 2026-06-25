@@ -65,82 +65,121 @@
 
     <main>
         
+
+
         <!-- Seccion de la imagen principal -->
         <section class="seccion-hero">
-            <div class="imagen-hero-placeholder">
-                <img src="img/medicaYAbuela.jpg" alt="Foto de una doctora con un adulto mayor" class="fotoEntrada">
+            <div class="divFoto">
+                <img src="img/BannerInicial.png" alt="Foto de una doctora con un adulto mayor" class="fotoEntrada"> <!--Imagen del banner principal -->
             </div>
             
-            <div class="barra-iconos-hero"> <!-- Iconitos del telefono , turnos, etc -->
+            <!-- Seccion donde se encuentran los iconitos -->
+            <div class="barra-iconos-hero"> 
                 <div class="container">
+
                     <div class="row text-center align-items-center">
+
                         <div class="col-4">
-                            <i class="bi bi-telephone icono-barra"></i>
+                            <i class="bi bi-telephone icono-barra"></i> <!--// Icono del telefono-->
                         </div>
+
+
                         <div class="col-4">
-                            <i class="bi bi-calendar3 icono-barra"></i>
+                            <i class="bi bi-calendar3 icono-barra"></i> <!--// Icono del calendario-->
                         </div>
+
+
                         <div class="col-4">
-                            <i class="bi bi-info-circle icono-barra"></i>
+                            <i class="bi bi-info-circle icono-barra"></i> <!--// Icono de informacion -->
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Turnos -->
-        <section class="seccion-info container text-center">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-4 order-2 order-md-1">
-                    <h2 class="titulo-info">Turnos</h2>
-                    <p class="subtitulo-info">Ahorra tiempo.</p>
-                    <p class="texto-info">Solicitá y gestioná tus turnos médicos online de forma rápida y sin esperas.</p>
-                </div>
-                <div class="col-12 col-md-4 order-1 order-md-2 mb-3 mb-md-0">
-                    <div class="imagen-seccion-placeholder">
-                        <!-- Espacio en blanco -->
+
+
+
+<!-- Sección Turnos -->
+        <section class="seccion-fondo-completo">
+            
+            <img src="img/turnos.png" alt="Foto de una medica agendando turnos" class="foto-fondo"> <!-- 1. Imagen de fondo absoluta -->
+            
+            
+            <div class="capa-oscura"></div> <!-- Capa oscura para dar contraste a las letras blancas-->
+
+
+            <div class="contenido-superpuesto container"> <!-- Contenido superpuesto distribuido -->
+                <div class="row align-items-center">  <!-- Alineamos los objtos -->
+                    
+                    <div class="col-12 col-md-6 text-center text-md-start mb-4 mb-md-0"> <!-- Texto a la izquierda en PC, centrado en celus -->
+                        
+                      <h2 class="titulo-banner">Turnos</h2>
+
+                        <p class="subtitulo-banner">Ahorra tiempo.</p>
+                        <p class="texto-banner mx-auto mx-md-0">Solicitá y gestioná tus turnos médicos online de forma rápida y sin esperas.</p> <!-- mx-auto en celu, mx-md-0 en PC para alinear a la izquierda -->
+
                     </div>
-                </div>
-                <div class="col-12 col-md-4 order-3 order-md-3 mt-3 mt-md-0">
-                    <a href="turnos.html" class="btn-accion">IR A TURNOS</a>
+                    
+                    
+                    <div class="col-12 col-md-6 text-center text-md-end"> <!-- Botón a la derecha en PC, centrado en Celu -->
+                        <a href="turnos.html" class="btn-accion">IR A TURNOS</a>
+                    </div>
+
                 </div>
             </div>
         </section>
+
+
+
 
         <!-- Sección Cartilla -->
-        <section class="seccion-info container text-center">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-4 order-3 order-md-1 mt-3 mt-md-0">
-                    <a href="cartilla.html" class="btn-accion">IR A CARTILLA</a>
-                </div>
-                <div class="col-12 col-md-4 order-1 order-md-2 mb-3 mb-md-0">
-                    <div class="imagen-seccion-placeholder">
-                        <!-- Espacio en blanco -->
+        <section class="seccion-fondo-completo">
+            <!-- Recuerda cambiar el src por la imagen correspondiente a Cartilla -->
+            <img src="img/cartilla.png" alt="Foto representativa de la cartilla médica" class="foto-fondo">
+            
+            <div class="capa-oscura"></div>
+
+            <div class="contenido-superpuesto container">
+                <div class="row align-items-center">
+                    <!-- Botón a la izquierda en PC (Invertido usando clases order de Bootstrap) -->
+                    <div class="col-12 col-md-6 order-2 order-md-1 text-center text-md-start mt-4 mt-md-0">
+                        <a href="cartilla.html" class="btn-accion">IR A CARTILLA</a>
                     </div>
-                </div>
-                <div class="col-12 col-md-4 order-2 order-md-3">
-                    <h2 class="titulo-info">Cartilla</h2>
-                    <p class="subtitulo-info">Tu red de salud a un clic.</p>
-                    <p class="texto-info">Encuentra médicos, especialistas y centros de atención cerca tuyo al instante.</p>
+
+                    <!-- Texto a la derecha en PC -->
+                    <div class="col-12 col-md-6 order-1 order-md-2 text-center text-md-end">
+                        <h2 class="titulo-banner">Cartilla</h2>
+                        <p class="subtitulo-banner">Tu red de salud a un clic.</p>
+                        <!-- ms-md-auto empuja el texto a la derecha en pantallas grandes -->
+                        <p class="texto-banner mx-auto ms-md-auto me-md-0">Encuentra médicos, especialistas y centros de atención cerca tuyo al instante.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Sección Trámites -->
-        <section class="seccion-info container text-center">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-4 order-2 order-md-1">
-                    <h2 class="titulo-info">Tramites</h2>
-                    <p class="subtitulo-info">Olvídate del papeleo.</p>
-                    <p class="texto-info">Gestioná autorizaciones, pedidos médicos y reintegros 100% digital desde tu casa.</p>
-                </div>
-                <div class="col-12 col-md-4 order-1 order-md-2 mb-3 mb-md-0">
-                    <div class="imagen-seccion-placeholder">
-                        <!-- Espacio en blanco -->
+        <section class="seccion-fondo-completo">
+            <!-- Recuerda cambiar el src por la imagen correspondiente a Trámites -->
+            <img src="img/tramites.png" alt="Foto representativa de trámites online" class="foto-fondo">
+            
+            <div class="capa-oscura"></div>
+
+            <div class="contenido-superpuesto container">
+                <div class="row align-items-center">
+                    <!-- Texto a la izquierda en PC, centrado en móvil -->
+                    <div class="col-12 col-md-6 text-center text-md-start mb-4 mb-md-0">
+                        <h2 class="titulo-banner">Tramites</h2>
+                        <p class="subtitulo-banner">Olvídate del papeleo.</p>
+                        <p class="texto-banner mx-auto mx-md-0">Gestioná autorizaciones, pedidos médicos y reintegros 100% digital desde tu casa.</p>
                     </div>
-                </div>
-                <div class="col-12 col-md-4 order-3 order-md-3 mt-3 mt-md-0">
-                    <a href="tramites.html" class="btn-accion">IR A TRAMITES</a>
+
+                    <!-- Botón a la derecha en PC, centrado en móvil -->
+                    <div class="col-12 col-md-6 text-center text-md-end">
+                        <a href="tramites.html" class="btn-accion">IR A TRAMITES</a>
+                    </div>
                 </div>
             </div>
         </section>

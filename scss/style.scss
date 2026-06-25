@@ -478,10 +478,8 @@ footer .pie-pagina {
     // Fondo general ligeramente grisáceo/azulado según el mockup
     background-color: #f2f5f7; 
 
-    // ==========================================
-    // HERO Y BARRA DE ICONOS
-    // ==========================================
-    .seccion-hero {
+
+    .seccion-hero { // Banner principal
         .fotoEntrada {
             width: 100%;
             height: 40vh; 
@@ -492,11 +490,17 @@ footer .pie-pagina {
             justify-content: center;
             object-fit: cover;
 
+            @media (min-width: 992px) {
+                height: 65vh; // Aumentamos la altura para PCs si lo deseas
+                object-position: 50% 20%;
+            }
+
         }
 
         .barra-iconos-hero {
             background-color: $colorTroncoClarito;
             padding: 1.2rem 0;
+
             
             .icono-barra {
                 font-size: 1.8rem;
@@ -505,57 +509,74 @@ footer .pie-pagina {
         }
     }
 
-    // ==========================================
-    // SECCIONES DE INFORMACIÓN (Turnos, Cartilla, Trámites)
-    // ==========================================
-    .seccion-info {
+
+    .seccion-fondo-completo {
+        position: relative;
+        width: 100%;
+        min-height: 50vh; // Define qué tan alta será la franja en la pantalla
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        overflow: hidden; 
         padding: 4rem 0;
-        
-        .titulo-info {
-            font-size: 1.7rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
+        border: solid 1px #000000;
 
-        .subtitulo-info {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .texto-info {
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.5;
-            max-width: 90%;
-            margin: 0 auto;
-        }
-
-        .imagen-seccion-placeholder {
+        // Capa 1: La foto de fondo
+        .foto-fondo {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 250px;
-            height: 180px;
-            background-color: $colorPlaceholder;
-            border-radius: 8px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 100%;
+            object-fit: cover; // Evita que se estire
+            object-position: center center;
+            z-index: 1; 
+            object-position: 50% 25%;
+        }
 
-            &::after {
-                content: "\F424";
-                font-family: "bootstrap-icons";
-                font-size: 3rem;
-                color: darken($colorPlaceholder, 15%);
+        // Capa 2: Filtro oscuro para que las letras blancas se lean bien
+        .capa-oscura {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); // El 0.5 es la opacidad (50%)
+            z-index: 2; 
+        }
+
+        // Capa 3: El texto y el botón
+        .contenido-superpuesto {
+            position: relative;
+            z-index: 3; // Mantiene esto por encima de la foto y la capa oscura
+            
+            .titulo-banner {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+                font-weight: 700;
+                color: #ffffff; // Texto forzado a blanco
+            }
+
+            .subtitulo-banner {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .texto-banner {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                max-width: 700px;
+                margin: 0 auto;
+                color: #ffffff;
             }
         }
-
+        
         .btn-accion {
             background-color: $colorHojas;
             color: white;
-            padding: 0.6rem 2.5rem;
+            padding: 0.8rem 3rem;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
@@ -563,6 +584,7 @@ footer .pie-pagina {
             transition: background-color 0.3s ease, transform 0.2s;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-top: 1rem;
 
             &:hover {
                 background-color: darken($colorHojas, 10%);
@@ -571,7 +593,6 @@ footer .pie-pagina {
             }
         }
     }
-
     // ==========================================
     // SECCIÓN CARRUSEL
     // ==========================================
