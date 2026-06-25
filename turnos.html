@@ -37,10 +37,11 @@
           </nav>
 
           <!-- Usuario + btn hamburguesa: siempre visible -->
-          <div class="col-4 col-md-3 col-lg-3 header_user text-end d-flex justify-content-end align-items-center gap-3">
+            <div class="col-4 col-md-3 col-lg-3 header_user text-end d-flex justify-content-end align-items-center gap-3">  
             
-            <a href="loginUsuario.html" class="header_logo">
-              <img src="img/iconoUser.png" alt="Icono de usuario" class="user-icon" onclick="toggleUserMenu()"> <!-- Icono usuario clickable -->
+            <a href="loginUsuario.html" class="header_logo d-flex align-items-center gap-2" style="text-decoration: none; color: inherit;">
+              <span id="header-username" class="fw-bold d-none d-md-block"></span>
+              <img src="img/iconoUser.png" alt="Icono de usuario" class="user-icon" id="header-photo" onclick="toggleUserMenu()">
             </a>
 
             
@@ -170,15 +171,15 @@
                     <!-- link hacia facebook, el cual muestra un mensaje cuando nos situamos arriba de el, se le asignan los estilos visuales de boton social, data-bs-toggle="tooltip"= Indica al Js que es un boton flotante-->
                     <a href="https://www.facebook.com" class="boton-social me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Visitanos en Facebook" aria-label="Facebook">
                         <!--Grafico vectorial, el cual no se pixela independiente cuan grande sea, viewBox= define las coordenadas || path: Son las coordenadas para dibujar el logo de facebook en este caso-->
-                        <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M31.997 15.999c0-8.836-7.163-15.999-15.999-15.999s-15.999 7.163-15.999 15.999c0 7.985 5.851 14.604 13.499 15.804v-11.18h-4.062v-4.625h4.062v-3.525c0-4.010 2.389-6.225 6.043-6.225 1.75 0 3.581 0.313 3.581 0.313v3.937h-2.017c-1.987 0-2.607 1.233-2.607 2.498v3.001h4.437l-0.709 4.625h-3.728v11.18c7.649-1.2 13.499-7.819 13.499-15.804z"/></svg>
+                        <svg width="40" height="40" viewBox="0 0 32 32" fill="currentColor"><path d="M31.997 15.999c0-8.836-7.163-15.999-15.999-15.999s-15.999 7.163-15.999 15.999c0 7.985 5.851 14.604 13.499 15.804v-11.18h-4.062v-4.625h4.062v-3.525c0-4.010 2.389-6.225 6.043-6.225 1.75 0 3.581 0.313 3.581 0.313v3.937h-2.017c-1.987 0-2.607 1.233-2.607 2.498v3.001h4.437l-0.709 4.625h-3.728v11.18c7.649-1.2 13.499-7.819 13.499-15.804z"/></svg>
                     </a>
 
                     <a href="https://x.com/home?lang=es" class="boton-social me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Seguinos en X" aria-label="X">
-                        <svg width="20" height="20" viewBox="0 0 23 24" fill="currentColor"><path d="M13.969 10.157l8.738-10.157h-2.071l-7.587 8.819-6.060-8.819h-6.989l9.164 13.336-9.164 10.651h2.071l8.012-9.313 6.4 9.313h6.989l-9.503-13.831zM11.133 13.454l-8.316-11.895h3.181l14.64 20.941h-3.181l-6.324-9.046z"/></svg>
+                        <svg width="40" height="40" viewBox="0 0 23 24" fill="currentColor"><path d="M13.969 10.157l8.738-10.157h-2.071l-7.587 8.819-6.060-8.819h-6.989l9.164 13.336-9.164 10.651h2.071l8.012-9.313 6.4 9.313h6.989l-9.503-13.831zM11.133 13.454l-8.316-11.895h3.181l14.64 20.941h-3.181l-6.324-9.046z"/></svg>
                     </a>
 
                     <a href="https://wa.me/541154755971?text=Hola!%20Estoy%20interesado%20en%20los%20planes%20del%20%22El%20Roble%22%20" class="boton-social" data-bs-toggle="tooltip" data-bs-placement="top" title="Contactanos por WhatsApp" aria-label="WhatsApp">
-                        <svg width="20" height="20" viewBox="0 0 24 28" fill="currentColor"><path d="M15.391 15.219c0.266 0 2.812 1.328 2.922 1.516 0.031 0.078 0.031 0.172 0.031 0.234 0 0.391-0.125 0.828-0.266 1.188-0.359 0.875-1.813 1.437-2.703 1.437-0.75 0-2.297-0.656-2.969-0.969-2.234-1.016-3.625-2.75-4.969-4.734-0.594-0.875-1.125-1.953-1.109-3.031v-0.125c0.031-1.031 0.406-1.766 1.156-2.469 0.234-0.219 0.484-0.344 0.812-0.344 0.187 0 0.375 0.047 0.578 0.047 0.422 0 0.5 0.125 0.656 0.531 0.109 0.266 0.906 2.391 0.906 2.547 0 0.594-1.078 1.266-1.078 1.625 0 0.078 0.031 0.156 0.078 0.234 0.344 0.734 1 1.578 1.594 2.141 0.719 0.688 1.484 1.141 2.359 1.578 0.109 0.063 0.219 0.109 0.344 0.109 0.469 0 1.25-1.516 1.656-1.516zM12.219 23.5c5.406 0 9.812-4.406 9.812-9.812s-4.406-9.812-9.812-9.812-9.812 4.406-9.812 9.812c0 2.063 0.656 4.078 1.875 5.75l-1.234 3.641 3.781-1.203c1.594 1.047 3.484 1.625 5.391 1.625zM12.219 1.906c6.5 0 11.781 5.281 11.781 11.781s-5.281 11.781-11.781 11.781c-1.984 0-3.953-0.5-5.703-1.469l-6.516 2.094 2.125-6.328c-1.109-1.828-1.687-3.938-1.687-6.078 0-6.5 5.281-11.781 11.781-11.781z"/></svg>
+                        <svg width="40" height="40" viewBox="0 0 24 28" fill="currentColor"><path d="M15.391 15.219c0.266 0 2.812 1.328 2.922 1.516 0.031 0.078 0.031 0.172 0.031 0.234 0 0.391-0.125 0.828-0.266 1.188-0.359 0.875-1.813 1.437-2.703 1.437-0.75 0-2.297-0.656-2.969-0.969-2.234-1.016-3.625-2.75-4.969-4.734-0.594-0.875-1.125-1.953-1.109-3.031v-0.125c0.031-1.031 0.406-1.766 1.156-2.469 0.234-0.219 0.484-0.344 0.812-0.344 0.187 0 0.375 0.047 0.578 0.047 0.422 0 0.5 0.125 0.656 0.531 0.109 0.266 0.906 2.391 0.906 2.547 0 0.594-1.078 1.266-1.078 1.625 0 0.078 0.031 0.156 0.078 0.234 0.344 0.734 1 1.578 1.594 2.141 0.719 0.688 1.484 1.141 2.359 1.578 0.109 0.063 0.219 0.109 0.344 0.109 0.469 0 1.25-1.516 1.656-1.516zM12.219 23.5c5.406 0 9.812-4.406 9.812-9.812s-4.406-9.812-9.812-9.812-9.812 4.406-9.812 9.812c0 2.063 0.656 4.078 1.875 5.75l-1.234 3.641 3.781-1.203c1.594 1.047 3.484 1.625 5.391 1.625zM12.219 1.906c6.5 0 11.781 5.281 11.781 11.781s-5.281 11.781-11.781 11.781c-1.984 0-3.953-0.5-5.703-1.469l-6.516 2.094 2.125-6.328c-1.109-1.828-1.687-3.938-1.687-6.078 0-6.5 5.281-11.781 11.781-11.781z"/></svg>
                     </a>
 
                 </div>

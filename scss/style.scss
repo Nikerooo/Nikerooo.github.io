@@ -16,9 +16,10 @@ $font-family-sans-serif: 'AR One Sans', sans-serif;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-footer .pie-pagina { 
+.pie-pagina { 
     border-top: 3px solid #000000 !important ;
     background-color: $colorTronco !important; 
+
 }
 
 html {
@@ -728,6 +729,82 @@ html {
                 font-size: 0.95rem;
                 margin: 0;
             }
+        }
+    }
+}
+
+
+
+
+// 1. Estilos para el body (centrado y fondo)
+.loginUsuario {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    // Asegúrate de que $colorHojas esté definido arriba en tus variables
+    background: linear-gradient(135deg, $colorHojas 0%, darken($colorHojas, 20%) 100%);
+}
+
+// 2. Estilos para el contenedor centralizado
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+            object-fit: contain; // Mantiene la proporción original
+            object-position: center; // Centra la imagen dentro de los 90x90px
+
+        }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        margin: 10px 0;
+        border: 2px solid #e1e1e1;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: $colorHojas;
+        }
+    }
+
+    .logearse { // Cambié de 'button' a '.logearse' para ser más específico
+        width: 100%;
+        padding: 14px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: $colorHojas;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: darken($colorHojas, 10%);
+            box-shadow: 0 4px 10px rgba($colorHojas, 0.3);
         }
     }
 }

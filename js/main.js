@@ -204,3 +204,82 @@ document.addEventListener("DOMContentLoaded", () => {   // Esta pendiente al doc
 
 });
 
+
+
+document.addEventListener("DOMContentLoaded", () => {   // Pone en modo escucha a todo el html, para esperar indicaciones
+    
+    // Formularios y mensajes
+    const loginForm = document.getElementById("login-form");    // Toma el contenido del login-form
+    const welcomeMsg = document.getElementById("welcome-message");  // Toma el mensaje de bienvenida
+    const displayName = document.getElementById("display-name");    
+    
+    // Inputs y botones
+    const usernameInput = document.getElementById("username");  // Se guarda el usuario
+    const passwordInput = document.getElementById("contrasena");    // La contraseña
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn"); // Acá está tu botón de desloguearse
+    
+    // Elementos del header
+    const headerUsername = document.getElementById("header-username");
+    const headerPhoto = document.getElementById("header-photo");
+
+    // Revisamos si hay alguien ya logeado (Al cargar cualquier página)
+    const usuarioGuardado = localStorage.getItem("usuario");    // Nos fijamos y tomamos el dato guardado en el input que hay en usuario, si hay algo se guarda
+    
+
+
+
+    if (usuarioGuardado) {  // Si hay algo, accede al if
+        
+        if (headerUsername) headerUsername.textContent = usuarioGuardado; // Mostramos el nombre en el header (si los elementos existen)
+        if (headerPhoto) headerPhoto.style.display = "inline-block";
+
+        //Si estamos en la página de login, mostramos el cartel de desloguearse
+        if (loginForm && welcomeMsg) {
+            loginForm.style.display = "none"; // Escondemos los inputs
+            welcomeMsg.classList.remove("d-none"); // Mostramos el cartel
+            displayName.textContent = `¡Hola de nuevo, ${usuarioGuardado}!`;
+        }
+    }
+
+
+
+    // Si se preciona el boton de login, se accede aca
+    if (loginBtn) {
+        loginBtn.addEventListener("click", () => {  // Se añade el evento
+            const nombre = usernameInput.value; // Creamos la variable de user y pass
+            const pass = passwordInput.value;
+
+            if (nombre && pass) {   // Verificamos que esten ambas
+                
+                localStorage.setItem("usuario", nombre); // Guardamos al usuario
+                
+                // Actualizamos la pantalla de login
+                loginForm.style.display = "none";
+                welcomeMsg.classList.remove("d-none");
+                displayName.textContent = `Bienvenido, ${nombre}`;
+
+                // Actualizamos el header al instante
+                if (headerUsername) headerUsername.textContent = nombre;
+                if (headerPhoto) headerPhoto.style.display = "inline-block";
+
+                // Esperamos 2 segundos y lo mandamos al inicio
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2000);
+            } else {
+                alert("Por favor, completa usuario y contraseña.");
+            }
+        });
+    }
+
+
+    // Cerramos la sesion
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            
+            localStorage.removeItem("usuario"); // Borramos el dato del navegador
+            location.reload(); // Recargamos la página actual para que vuelva a aparecer el formulario vacío
+        });
+    }
+});

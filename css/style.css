@@ -11859,6 +11859,15 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.pie-pagina {
+  border-top: 3px solid #000000 !important;
+  background-color: #C07D46 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 .header {
   display: flex;
   background-color: #269482;
@@ -12178,11 +12187,6 @@ textarea.form-control-lg {
   color: rgb(230.8669354839, 205.2016129032, 184.1330645161);
 }
 
-footer .pie-pagina {
-  border-top: 3px solid #000000 !important;
-  background-color: #C07D46 !important;
-}
-
 .pagina-turnos .card-roble {
   background: #ffffff;
   border-top: 8px solid #269482;
@@ -12420,6 +12424,69 @@ footer .pie-pagina {
   color: #666;
   font-size: 0.95rem;
   margin: 0;
+}
+
+.loginUsuario {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #269482 0%, rgb(17.1612903226, 66.8387096774, 58.7096774194) 100%);
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.login-container:hover {
+  transform: translateY(-5px);
+}
+.login-container img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
+  object-fit: contain;
+  object-position: center;
+}
+.login-container input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 2px solid #e1e1e1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+.login-container input:focus {
+  outline: none;
+  border-color: #269482;
+}
+.login-container .logearse {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #269482;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.login-container .logearse:hover {
+  background-color: rgb(27.5806451613, 107.4193548387, 94.3548387097);
+  box-shadow: 0 4px 10px rgba(38, 148, 130, 0.3);
 }
 
 /*# sourceMappingURL=style.css.map */
