@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
+// Esta funcion hace que al momento de tocar el logo del usuario, te dirija al login
 function irLogin() {
     
     window.location.href = "loginUsuario.html"; // 
@@ -181,3 +181,26 @@ document.addEventListener("DOMContentLoaded", function() {
     var tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltips.map(function (t) { return new bootstrap.Tooltip(t); });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {   // Esta pendiente al documento, queda en estado Escucha
+    
+   
+    const iconosRedireccion = document.querySelectorAll('.icono-enlace'); //Tomamos todos los elementos que tengan la clase 'icono-enlace'
+ 
+    
+    iconosRedireccion.forEach(icono => { //Recorremos cada uno y le agregamos el evento click
+        icono.addEventListener('click', function() {
+            
+            
+            const destino = this.getAttribute('data-url');  // Guardamos la URL que tienen en el data-url
+            
+            
+            if (destino) { //Si el destino existe, redirigimos la página
+                window.location.href = destino; // Redireccionamos al destino
+            }
+        });
+    });
+
+});
+

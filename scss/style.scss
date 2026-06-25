@@ -16,6 +16,15 @@ $font-family-sans-serif: 'AR One Sans', sans-serif;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+footer .pie-pagina { 
+    border-top: 3px solid #000000 !important ;
+    background-color: $colorTronco !important; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 .header {
     display: flex;      // Se activa el flexbox para alinear los elementos horizontalmente
     background-color: $colorHojas;  // Ponemos de color verde el header
@@ -436,10 +445,7 @@ $font-family-sans-serif: 'AR One Sans', sans-serif;
 
 }
 
-footer .pie-pagina { 
-    border-top: 3px solid #000000 !important ;
-    background-color: $colorTronco !important; 
-}
+
 
 
 
@@ -650,9 +656,7 @@ footer .pie-pagina {
 
 
 
-    // ==========================================
-    // SECCIÓN CARRUSEL
-    // ==========================================
+    // Carrusel
     .seccion-carrusel {
         padding: 2rem 0 4rem;
 
@@ -687,9 +691,7 @@ footer .pie-pagina {
         }
     }
 
-    // ==========================================
-    // SECCIÓN CONTACTOS
-    // ==========================================
+    // Contactos
     .seccion-contactos {
         background-color: #ffffff;
         padding: 3rem 0;
