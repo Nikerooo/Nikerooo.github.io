@@ -500,6 +500,10 @@ footer .pie-pagina {
                     height: 65vh; // Aumentamos la altura para PCs
                     object-position: 50% 20%; // Encuadre perfecto
                 }
+
+                @media(min-width: 558px) AND (max-width: 991px) {
+                    object-position: 50% 30%;
+                }
             }
 
             // Estilos para que el texto quede flotando sobre la imagen
@@ -510,6 +514,25 @@ footer .pie-pagina {
                 z-index: 2;
                 color: white; // Letras blancas para contrastar
                 text-shadow: 2px 2px 8px rgba(0,0,0,0.6); // Sombra para que sea legible sin importar la foto
+
+                @media (min-width: 992px) {
+                   left: 6%;
+                    top: 10%;
+                }
+
+                @media(min-width: 558px) AND (max-width: 991px) {
+                    bottom: 10%; // Distancia desde el fondo
+                    left: 0;
+                    width: 100%; // Ocupa todo el ancho para poder centrar
+
+                }
+
+                @media (max-width: 557px) {
+                    bottom: 10%; // Distancia desde el fondo
+                    left: 0;
+                    width: 100%; // Ocupa todo el ancho para poder centrar
+                }
+
                 
                 .titulo-principal {
                     font-size: 3rem;
@@ -624,6 +647,9 @@ footer .pie-pagina {
             }
         }
     }
+
+
+
     // ==========================================
     // SECCIÓN CARRUSEL
     // ==========================================
@@ -638,20 +664,25 @@ footer .pie-pagina {
             text-transform: uppercase;
         }
 
-        .imagen-carrusel-placeholder {
+        // 1. El contenedor actúa como el "marco" de la foto
+        .div-carrusel {
             width: 100%;
-            height: 200px;
-            background-color: $colorPlaceholder;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 50vh; // Usamos height fijo en lugar de min-height para forzar uniformidad
+            border: solid 1px #000000;
+            overflow: hidden; 
+            border-radius: 4px; // Opcional: un pequeño redondeo para que quede más moderno
+            
+            @media (min-width: 992px) {
+                height: 65vh; // Altura uniforme para PC
+            }
 
-            &::after {
-                content: "\F424";
-                font-family: "bootstrap-icons";
-                font-size: 3rem;
-                color: darken($colorPlaceholder, 15%);
+            // 2. La imagen llena el marco
+            .foto-carrusel {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; // Esto recorta el excedente sin deformar la imagen
+                object-position: top center; // Asegura que no se corte el título del afiche
+                display: block;
             }
         }
     }

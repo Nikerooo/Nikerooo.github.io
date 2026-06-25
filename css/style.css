@@ -12232,6 +12232,11 @@ footer .pie-pagina {
     object-position: 50% 20%;
   }
 }
+@media (min-width: 558px) and (max-width: 991px) {
+  .pagina-principal .divFoto .fotoEntrada {
+    object-position: 50% 30%;
+  }
+}
 .pagina-principal .divFoto .texto-hero {
   position: absolute;
   left: 6%;
@@ -12239,6 +12244,26 @@ footer .pie-pagina {
   z-index: 2;
   color: white;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+@media (min-width: 992px) {
+  .pagina-principal .divFoto .texto-hero {
+    left: 6%;
+    top: 10%;
+  }
+}
+@media (min-width: 558px) and (max-width: 991px) {
+  .pagina-principal .divFoto .texto-hero {
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 557px) {
+  .pagina-principal .divFoto .texto-hero {
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+  }
 }
 .pagina-principal .divFoto .texto-hero .titulo-principal {
   font-size: 3rem;
@@ -12344,20 +12369,24 @@ footer .pie-pagina {
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
-.pagina-principal .seccion-carrusel .imagen-carrusel-placeholder {
+.pagina-principal .seccion-carrusel .div-carrusel {
   width: 100%;
-  height: 200px;
-  background-color: #caced1;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 50vh;
+  border: solid 1px #000000;
+  overflow: hidden;
+  border-radius: 4px;
 }
-.pagina-principal .seccion-carrusel .imagen-carrusel-placeholder::after {
-  content: "\f424";
-  font-family: "bootstrap-icons";
-  font-size: 3rem;
-  color: rgb(161.0454545455, 168.1363636364, 173.4545454545);
+@media (min-width: 992px) {
+  .pagina-principal .seccion-carrusel .div-carrusel {
+    height: 65vh;
+  }
+}
+.pagina-principal .seccion-carrusel .div-carrusel .foto-carrusel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 .pagina-principal .seccion-contactos {
   background-color: #ffffff;
