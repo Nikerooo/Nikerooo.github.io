@@ -8,7 +8,7 @@
     <meta property="og:image" content="https://nikerooo.github.io/img/LogoArbol.png">
     <meta property="og:url" content="https://nikerooo.github.io/index.html">
     <meta property="og:type" content="website">
-    
+
   <title>Inicio - Mutual El Roble</title>
   <link rel="canonical" href="https://nikerooo.github.io/index.html">
     <meta name="description" content="Pestaña principal de la mutual El Roble, con apartado de noticias medicas .">
@@ -210,31 +210,48 @@
 
 
         <!-- Sección Carrusel -->
-        <section class="seccion-carrusel container text-center">
-            <h2 class="titulo-carrusel">CARRUSEL DE NOTICIAS</h2>
-            <div class="row">
+<section class="seccion-carrusel container text-center my-4">
+    <h2 class="titulo-carrusel mb-4">CARRUSEL DE NOTICIAS</h2>
+    
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            
+            <div id="carruselNoticias" class="carousel slide" data-bs-ride="carousel">
                 
-                <div class="col-12 col-md-4">   <!-- Mostramos solo 1 en celular y 3 en PC usando d-none d-md-block -->
-                    <div class="div-carrusel">
-                        <img src="img/campañaVacunacion.jpg" alt="Campaña de vacunacion" class="foto-carrusel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselNoticias" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Noticia 1"></button>
+                    <button type="button" data-bs-target="#carruselNoticias" data-bs-slide-to="1" aria-label="Noticia 2"></button>
+                    <button type="button" data-bs-target="#carruselNoticias" data-bs-slide-to="2" aria-label="Noticia 3"></button>
+                </div>
+
+                <div class="carousel-inner div-carrusel rounded shadow">
+                    
+                    <div class="carousel-item active" data-bs-interval="4000">
+                        <img src="img/campañaVacunacion.jpg" alt="Campaña de vacunacion" class="d-block w-100 foto-carrusel">
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="img/prevencionDrogas.jpg" alt="Campaña concientizacion drogas" class="d-block w-100 foto-carrusel">
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="img/publicSueño.jpg" alt="Campaña de concientizacion sobre el sueño" class="d-block w-100 foto-carrusel">
                     </div>
                 </div>
 
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselNoticias" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselNoticias" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
 
-                <div class="col-12 col-md-4 d-none d-md-block">
-                    <div class="div-carrusel">
-                        <img src="img/prevencionDrogas.jpg" alt="Campaña concienizacion drogas" class="foto-carrusel">
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-md-4 d-none d-md-block">
-                    <div class="div-carrusel">
-                        <img src="img/publicSueño.jpg" alt="Campaña de concientizacion sobre el sueño" class="foto-carrusel">
-                    </div>
-                </div>
             </div>
-        </section>
+            </div>
+    </div>
+</section>
 
 
 
