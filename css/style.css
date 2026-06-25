@@ -12211,27 +12211,48 @@ footer .pie-pagina {
 .pagina-principal {
   background-color: #f2f5f7;
 }
-.pagina-principal .seccion-hero .fotoEntrada {
+.pagina-principal .divFoto {
+  position: relative;
   width: 100%;
-  height: 40vh;
-  min-height: 250px;
-  background-color: #caced1;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.pagina-principal .divFoto .fotoEntrada {
+  width: 100%;
+  height: 40vh;
+  min-height: 250px;
   object-fit: cover;
+  display: block;
+  background-color: #caced1;
 }
 @media (min-width: 992px) {
-  .pagina-principal .seccion-hero .fotoEntrada {
+  .pagina-principal .divFoto .fotoEntrada {
     height: 65vh;
     object-position: 50% 20%;
   }
 }
-.pagina-principal .seccion-hero .barra-iconos-hero {
+.pagina-principal .divFoto .texto-hero {
+  position: absolute;
+  left: 6%;
+  top: 10%;
+  z-index: 2;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.pagina-principal .divFoto .texto-hero .titulo-principal {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.pagina-principal .divFoto .texto-hero .subtitulo-principal {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+.pagina-principal .barra-iconos-hero {
   background-color: rgb(230.8669354839, 205.2016129032, 184.1330645161);
   padding: 1.2rem 0;
 }
-.pagina-principal .seccion-hero .barra-iconos-hero .icono-barra {
+.pagina-principal .barra-iconos-hero .icono-barra {
   font-size: 1.8rem;
   color: #269482;
 }
@@ -12245,6 +12266,12 @@ footer .pie-pagina {
   overflow: hidden;
   padding: 4rem 0;
   border: solid 1px #000000;
+}
+@media (min-width: 992px) {
+  .pagina-principal .seccion-fondo-completo {
+    min-height: 75vh;
+    padding: 6rem 0;
+  }
 }
 .pagina-principal .seccion-fondo-completo .foto-fondo {
   position: absolute;

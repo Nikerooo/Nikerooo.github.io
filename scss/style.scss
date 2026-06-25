@@ -478,23 +478,49 @@ footer .pie-pagina {
     // Fondo general ligeramente grisáceo/azulado según el mockup
     background-color: #f2f5f7; 
 
+        
 
-    .seccion-hero { // Banner principal
-        .fotoEntrada {
+        .divFoto {
+            position: relative; // Esto es clave para que el texto se posicione respecto a la foto
             width: 100%;
-            height: 40vh; 
-            min-height: 250px;
-            background-color: $colorPlaceholder;
             display: flex;
             align-items: center;
             justify-content: center;
-            object-fit: cover;
 
-            @media (min-width: 992px) {
-                height: 65vh; // Aumentamos la altura para PCs si lo deseas
-                object-position: 50% 20%;
+            .fotoEntrada {
+                width: 100%;
+                height: 40vh; // Altura en celulares
+                min-height: 250px;
+                object-fit: cover;
+                display: block;
+                background-color: $colorPlaceholder; // Por si tarda en cargar la foto
+
+                // Ajuste para PCs
+                @media (min-width: 992px) {
+                    height: 65vh; // Aumentamos la altura para PCs
+                    object-position: 50% 20%; // Encuadre perfecto
+                }
             }
 
+            // Estilos para que el texto quede flotando sobre la imagen
+            .texto-hero {
+                position: absolute; // Superpone el texto a la imagen
+                left: 6%;
+                top: 10%;
+                z-index: 2;
+                color: white; // Letras blancas para contrastar
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.6); // Sombra para que sea legible sin importar la foto
+                
+                .titulo-principal {
+                    font-size: 3rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .subtitulo-principal {
+                    font-size: 1.5rem;
+                    font-weight: normal;
+                }
+            }
         }
 
         .barra-iconos-hero {
@@ -507,7 +533,7 @@ footer .pie-pagina {
                 color: $colorHojas;
             }
         }
-    }
+    
 
 
     .seccion-fondo-completo {
@@ -520,6 +546,11 @@ footer .pie-pagina {
         overflow: hidden; 
         padding: 4rem 0;
         border: solid 1px #000000;
+
+        @media (min-width: 992px) {
+            min-height: 75vh; // Aumenta este número (70vh, 80vh o hasta 100vh) para hacer el div más grande
+            padding: 6rem 0;  // También puedes aumentar el relleno interno para que el texto respire más
+        }
 
         // Capa 1: La foto de fondo
         .foto-fondo {
