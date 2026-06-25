@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://nikerooo.github.io/index.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://nikerooo.github.io/turnos.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nikerooo.github.io/cartilla.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nikerooo.github.io/tramites.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
