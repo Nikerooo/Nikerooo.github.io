@@ -38,8 +38,13 @@
             <ul class="d-flex justify-content-center gap-4 mb-0"> <!-- Contiene los links de navegacion, activamos el modo flex para alinear, y lo ponemos verticalmente en el centro-->
               <li><a href="index.html">Inicio</a></li>
               <li><a href="cartilla.html">Cartilla</a></li> <!-- Link a la sección de cartilla -->
-              <li><a href="turnos.html">Turnos</a></li>
-              <li><a href="tramites.html">Tramites</a></li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="turnosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Turnos</a>
+                <ul class="dropdown-menu" aria-labelledby="turnosDropdown">
+                    <li><a class="dropdown-item" href="turnos.html">Solicitar Turno</a></li>
+                    <li><a class="dropdown-item" href="turnos-confirmacion.html">Confirmación</a></li>
+                    <li><a class="dropdown-item" href="turnos-lista.html">Listado de Turnos</a></li></ul></li>
+
+              <li><a href="tramites.html">Trámites</a></li>
             </ul>
           </nav>
 
@@ -76,8 +81,14 @@
             <ul>  <!-- Crea filas y columnas -->
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="cartilla.html">Cartilla</a></li>
-                <li><a href="turnos.html">Turnos</a></li>
-                <li><a href="tramites.html">Tramites</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="turnosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">TURNOS</a>
+                  <ul class="dropdown-menu" aria-labelledby="turnosDropdown">
+                    <li><a class="dropdown-item" href="turnos.html">Solicitar Turno</a></li>
+                    <li><a class="dropdown-item" href="turnos-confirmacion.html">Confirmación</a></li>
+                    <li><a class="dropdown-item" href="turnos-lista.html">Listado de Turnos</a></li>
+                  </ul>
+                </li>
+                <li><a href="tramites.html">Trámites</a></li>
             </ul>
         </div>
 
@@ -94,12 +105,12 @@
           <h2 class="text-success fw-bold mb-4">TURNO CONFIRMADO EXITOSAMENTE</h2>
 
           <!-- Datos del turno -->
-            <p><strong>Profesional:</strong> Dr. Juan Pérez</p>
-            <p><strong>Especialidad:</strong> Cardiología</p>
-            <p><strong>Fecha y Hora:</strong> 14/05/2026 - 10:00 horas</p>
-            <p><strong>Paciente:</strong> <span id="nombrePaciente"></span></p>
-            <p><strong>DNI N°:</strong> <span id="dniPaciente"></span></p>
-
+          <p><strong>Profesional:</strong> <span id="confProfesional"></span></p>
+          <p><strong>Especialidad:</strong> <span id="confEspecialidad"></span></p>
+          <p><strong>Fecha y Hora:</strong> <span id="confFechaHora"></span></p>
+          <p><strong>Paciente:</strong> <span id="nombrePaciente"></span></p>
+          <p><strong>DNI N°:</strong> <span id="dniPaciente"></span></p>
+          
           <!-- Botones -->
           <div class="mt-4">
             <a href="index.html" class="btn btn-warning me-3">VOLVER AL INICIO</a>
@@ -151,6 +162,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const ultimoTurno = JSON.parse(localStorage.getItem("ultimoTurno"));
+        
+        if (ultimoTurno) {
+            document.getElementById("confProfesional").textContent = ultimoTurno.profesional;
+            document.getElementById("confEspecialidad").textContent = ultimoTurno.especialidad;
+            document.getElementById("confFechaHora").textContent = `${ultimoTurno.fecha} - ${ultimoTurno.hora} hs`;
+            document.getElementById("nombrePaciente").textContent = ultimoTurno.paciente;
+            document.getElementById("dniPaciente").textContent = ultimoTurno.dni;
+        } else {
+            // Guardrail por si entran directo sin sacar un turno
+            document.querySelector(".card-roble").innerHTML = "<p class='text-danger'>No se encontró ninguna reserva reciente.</p>";
+        }
+    });
+  </script>
 
 </body>
 </html>
