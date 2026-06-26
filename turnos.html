@@ -37,8 +37,13 @@
             <ul class="d-flex justify-content-center gap-4 mb-0"> <!-- Contiene los links de navegacion, activamos el modo flex para alinear, y lo ponemos verticalmente en el centro-->
               <li><a href="index.html">Inicio</a></li>
               <li><a href="cartilla.html">Cartilla</a></li> <!-- Link a la sección de cartilla -->
-              <li><a href="turnos.html">Turnos</a></li>
-              <li><a href="tramites.html">Tramites</a></li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="turnosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Turnos</a>
+                <ul class="dropdown-menu" aria-labelledby="turnosDropdown">
+                    <li><a class="dropdown-item" href="turnos.html">Solicitar Turno</a></li>
+                    <li><a class="dropdown-item" href="turnos-confirmacion.html">Confirmación</a></li>
+                    <li><a class="dropdown-item" href="turnos-lista.html">Listado de Turnos</a></li></ul></li>
+
+              <li><a href="tramites.html">Trámites</a></li>
             </ul>
           </nav>
 
@@ -75,8 +80,13 @@
             <ul>  <!-- Crea filas y columnas -->
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="cartilla.html">Cartilla</a></li>
-                <li><a href="turnos.html">Turnos</a></li>
-                <li><a href="tramites.html">Tramites</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="turnosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Turnos</a>
+                <ul class="dropdown-menu" aria-labelledby="turnosDropdown">
+                    <li><a class="dropdown-item" href="turnos.html">Solicitar Turno</a></li>
+                    <li><a class="dropdown-item" href="turnos-confirmacion.html">Confirmación</a></li>
+                    <li><a class="dropdown-item" href="turnos-lista.html">Listado de Turnos</a></li></ul></li>
+
+                <li><a href="tramites.html">Trámites</a></li>
             </ul>
         </div>
 
