@@ -100,9 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     
     // Referencias al DOM [9]
@@ -112,15 +109,15 @@ document.addEventListener("DOMContentLoaded", function() {
     var horaSel = document.getElementById("hora");
     var form = document.getElementById("formTurno");
 
-    // Base de datos específica: 3 médicos ÚNICOS por especialidad
+    // Base de datos específica: 3 médicos por especialidad
     var staff = {
         "Geriatría": ["Dr. Hugo Salinas", "Dra. Mirta Legrand", "Dr. Oscar González"],
         "Cardiología": ["Dr. Luis Favaloro", "Dra. Inés García", "Dr. Ricardo Darín"],
         "Clínica Médica": ["Dra. Sofía Martínez", "Dr. Alberto Pérez", "Dra. Lucía Soria"],
-        "Traumatología": ["Dr. Esteban Quito", "Dra. Yamila Paz", "Dr. Marcos Paz"],
-        "Neurología": ["Dr. Facundo Manes", "Dra. Paula Valle", "Dr. Jorge Luis"],
+        "Traumatología": ["Dr. Iván Carrizo", "Dra. Juliana VIñas", "Dr. Marcos Paz"],
+        "Neurología": ["Dr. Facundo Manes", "Dra. Paula Valle", "Dr. Jorge Luis Andreu"],
         "Hematología": ["Dra. Rosa Luna", "Dra. Fernando Bos", "Dra. Silvia Jota"],
-        "Flebología": ["Dr. Emilio Nani", "Dra. Paula Vern", "Dr. Cristian Uz"]
+        "Flebología": ["Dr. Emilio Nani", "Dra. Paula Verón", "Dr. Cristian Uz"]
     };
 
     // Evento Change para Especialistas [9]
@@ -159,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })();
 
     // Evento Submit y Componentes Bootstrap [11]
+    // Reemplaza la lógica del evento Submit dentro del DOMContentLoaded de turnos en main.js
     form.addEventListener("submit", function(e) {
         e.preventDefault();
         if (!form.checkValidity()) {
@@ -166,15 +164,39 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        document.getElementById("resumenCita").innerHTML = 
-            "Turno agendado con <strong>" + profSel.value + "</strong> para el día <strong>" + fechaSel.value + "</strong> a las <strong>" + horaSel.value + " hs</strong>.";
+        // --- Lógica del Estudiante: Generación de datos aleatorios ---
+        const nombresAleatorios = ["Quique Gelblung", "María Robledo", "Juan Carlos Sur", "Ana Clara Oliva", "Lucas Casillas"];
+        const pacienteAleatorio = nombresAleatorios[Math.floor(Math.random() * nombresAleatorios.length)];
+        const dniAleatorio = Math.floor(Math.random() * (45000000 - 20000000) + 20000000).toString();
 
-        new bootstrap.Modal(document.getElementById("modalExito")).show();
-        new bootstrap.Toast(document.getElementById("toastFeedback")).show();
+        // Estructura del turno seleccionado
+        const nuevoTurno = {
+            especialidad: espSel.value,
+            profesional: profSel.value,
+            fecha: fechaSel.value,
+            hora: horaSel.value,
+            paciente: pacienteAleatorio,
+            dni: dniAleatorio
+        };
 
-        form.reset();
-        form.classList.remove("was-validated");
-        profSel.disabled = true;
+        // 1. Guardar como el turno más reciente para la pantalla de confirmación
+        localStorage.setItem("ultimoTurno", JSON.stringify(nuevoTurno));
+
+        // 2. Guardar en el histórico de los 5 más recientes
+        let listaTurnos = JSON.parse(localStorage.getItem("listaTurnos")) || [];
+        
+        // Unshift lo agrega al principio de la lista (el más reciente primero)
+        listaTurnos.unshift(nuevoTurno);
+        
+        // Cortamos el array para quedarnos sólo con los 5 más recientes
+        if (listaTurnos.length > 5) {
+            listaTurnos = listaTurnos.slice(0, 5);
+        }
+        
+        localStorage.setItem("listaTurnos", JSON.stringify(listaTurnos));
+
+        // Redirigir automáticamente a la pantalla de confirmación
+        window.location.href = "turnos-confirmacion.html";
     });
 
     // Inicializar Tooltips [11]
